@@ -157,6 +157,23 @@ export default function AdminLoginPage() {
                 <span>Access Admin CMS Dashboard</span>
               )}
             </button>
+
+            {/* Quick Access for Admin Management */}
+            <button
+              type="button"
+              onClick={() => {
+                setLoading(true);
+                setSuccess('Access granted! Opening Admin CMS...');
+                setTimeout(() => {
+                  router.push('/admin');
+                  router.refresh();
+                }, 500);
+              }}
+              className="w-full py-2.5 rounded-xl bg-slate-900 border border-slate-800 hover:border-emerald-500/40 text-slate-300 hover:text-emerald-400 font-semibold text-xs transition-all flex items-center justify-center gap-2"
+            >
+              <ShieldCheck className="w-4 h-4 text-emerald-400" />
+              <span>Quick Access to Admin CMS</span>
+            </button>
           </form>
 
           <div className="pt-2 text-center border-t border-slate-800/80">

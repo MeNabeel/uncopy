@@ -3,6 +3,7 @@
 import React, { useState } from 'react';
 import Link from 'next/link';
 import { TrendingUp, Search, Menu, X, Sparkles, CreditCard, Landmark, Wallet } from 'lucide-react';
+import ThemeToggle from './ThemeToggle';
 import SearchModal from './SearchModal';
 import { Post } from '@/types/blog';
 
@@ -27,9 +28,6 @@ export default function Header({ posts = [] }: HeaderProps) {
               <div className="flex flex-col">
                 <span className="text-xl sm:text-2xl font-black text-slate-100 tracking-tight leading-none">
                   Unstory<span className="text-emerald-400">.</span>
-                </span>
-                <span className="text-[10px] font-mono text-emerald-400 tracking-wider uppercase">
-                  Finance & Credit Media
                 </span>
               </div>
             </Link>
@@ -66,7 +64,7 @@ export default function Header({ posts = [] }: HeaderProps) {
               </Link>
             </nav>
 
-            {/* Search Trigger & Admin CMS Link */}
+            {/* Search Trigger, Theme Toggle & Admin CMS Link */}
             <div className="flex items-center gap-2.5">
               <button
                 onClick={() => setIsSearchOpen(true)}
@@ -79,6 +77,8 @@ export default function Header({ posts = [] }: HeaderProps) {
                   ⌘K
                 </kbd>
               </button>
+
+              <ThemeToggle />
 
               <Link
                 href="/admin"

@@ -3,6 +3,7 @@
 import React from 'react';
 import Link from 'next/link';
 import { Menu, Plus, Bell, ShieldCheck, User } from 'lucide-react';
+import ThemeToggle from '../ThemeToggle';
 
 interface HeaderProps {
   onMenuClick: () => void;
@@ -26,6 +27,8 @@ export default function AdminHeader({ onMenuClick, title = 'CMS Control Panel' }
       </div>
 
       <div className="flex items-center gap-3">
+        <ThemeToggle />
+
         <Link
           href="/admin/posts/new"
           className="px-3.5 py-1.5 rounded-xl gradient-emerald text-slate-950 font-bold text-xs shadow-md hover:shadow-emerald-500/20 transition-all flex items-center gap-1.5"

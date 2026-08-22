@@ -79,7 +79,7 @@ export default function Footer() {
           </p>
           <div className="flex flex-col sm:flex-row justify-between items-center gap-2 pt-2 text-[10px] text-slate-600">
             <span>© {new Date().getFullYear()} Unstory. All rights reserved. Built with Next.js 15 & MDX.</span>
-            <span className="flex items-center gap-1">Crafted with <Heart className="w-3 h-3 text-rose-500 fill-rose-500 inline" /> for financial clarity</span>
+            <span>Unstory Platform - Built for financial clarity</span>
           </div>
         </div>
       </div>
