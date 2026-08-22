@@ -122,7 +122,7 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
         />
       )}
 
-      <div className="space-y-6">
+      <div className="space-y-6 sm:space-y-8">
         <Breadcrumbs
           items={[
             { label: post.category?.name || category, href: `/${post.category?.slug || category}` },
@@ -144,18 +144,18 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
             </span>
           </div>
 
-          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-black text-slate-100 tracking-tight leading-tight">
+          <h1 className="text-2xl sm:text-4xl lg:text-5xl font-black text-slate-100 tracking-tight leading-tight">
             {post.title}
           </h1>
 
-          <p className="text-base sm:text-lg text-slate-300 leading-relaxed font-normal max-w-4xl">
+          <p className="text-sm sm:text-base lg:text-lg text-slate-300 leading-relaxed font-normal max-w-4xl">
             {post.excerpt}
           </p>
 
           {/* Author Meta Box */}
           <div className="flex items-center justify-between pt-2">
             <div className="flex items-center gap-3">
-              <div className="w-10 h-10 rounded-full bg-slate-800 border border-slate-700 overflow-hidden relative">
+              <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-slate-800 border border-slate-700 overflow-hidden relative shrink-0">
                 <Image
                   src={post.author?.avatar_url || 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=150&q=80'}
                   alt={post.author?.name || 'Author'}
@@ -164,8 +164,8 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
                 />
               </div>
               <div>
-                <div className="text-sm font-bold text-slate-200">{post.author?.name || 'Unstory Team'}</div>
-                <div className="text-xs text-slate-400">Senior Financial Analyst</div>
+                <div className="text-xs sm:text-sm font-bold text-slate-200">{post.author?.name || 'Unstory Team'}</div>
+                <div className="text-[11px] sm:text-xs text-slate-400">Senior Financial Analyst</div>
               </div>
             </div>
           </div>
@@ -173,7 +173,7 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
 
         {/* Hero Featured Image */}
         {post.cover_image && (
-          <div className="relative h-72 sm:h-96 w-full rounded-3xl overflow-hidden border border-slate-800 shadow-2xl bg-slate-900">
+          <div className="relative h-56 sm:h-80 lg:h-96 w-full rounded-2xl sm:rounded-3xl overflow-hidden border border-slate-800 shadow-2xl bg-slate-900">
             <Image
               src={post.cover_image}
               alt={post.title}
@@ -187,7 +187,7 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
         {/* Main Content Grid: Sidebar + Article Prose + TOC */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 pt-4">
           {/* Main Article Content */}
-          <article className="lg:col-span-8 prose-custom">
+          <article className="lg:col-span-8 prose-custom min-w-0 max-w-full overflow-hidden">
             {post.content.trim().startsWith('<') ? (
               <div dangerouslySetInnerHTML={{ __html: post.content }} />
             ) : (
@@ -195,7 +195,7 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
             )}
 
             {/* Bottom Article Author Bio */}
-            <div className="my-10 p-6 rounded-2xl glass-card border border-slate-800 flex items-start gap-4">
+            <div className="my-8 sm:my-10 p-5 sm:p-6 rounded-2xl glass-card border border-slate-800 flex flex-col sm:flex-row items-start gap-4">
               <div className="w-12 h-12 rounded-full bg-slate-800 border border-slate-700 overflow-hidden relative shrink-0">
                 <Image
                   src={post.author?.avatar_url || 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=150&q=80'}
@@ -222,9 +222,9 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
         </div>
 
         {/* Related Posts Section */}
-        <section className="pt-12 border-t border-slate-800/80">
-          <h3 className="text-xl font-bold text-slate-100 mb-6">More Recommended Financial Guides</h3>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <section className="pt-8 sm:pt-12 border-t border-slate-800/80">
+          <h3 className="text-lg sm:text-xl font-bold text-slate-100 mb-6">More Recommended Financial Guides</h3>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6">
             {relatedPosts.map((rPost) => (
               <Link
                 key={rPost.id}

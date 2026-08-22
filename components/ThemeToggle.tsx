@@ -10,10 +10,13 @@ export default function ThemeToggle() {
   useEffect(() => {
     setMounted(true);
     const savedTheme = localStorage.getItem('theme') as 'dark' | 'light' | null;
-    if (savedTheme) {
-      setTheme(savedTheme);
-      document.documentElement.classList.toggle('light', savedTheme === 'light');
+    if (savedTheme === 'light') {
+      setTheme('light');
+      document.documentElement.classList.add('light');
+      document.documentElement.classList.remove('dark');
     } else {
+      setTheme('dark');
+      document.documentElement.classList.add('dark');
       document.documentElement.classList.remove('light');
     }
   }, []);
@@ -24,7 +27,9 @@ export default function ThemeToggle() {
     localStorage.setItem('theme', nextTheme);
     if (nextTheme === 'light') {
       document.documentElement.classList.add('light');
+      document.documentElement.classList.remove('dark');
     } else {
+      document.documentElement.classList.add('dark');
       document.documentElement.classList.remove('light');
     }
   };
@@ -38,7 +43,8 @@ export default function ThemeToggle() {
   return (
     <button
       onClick={toggleTheme}
-      className="p-2 rounded-xl bg-slate-900 border border-slate-800 text-slate-300 hover:text-emerald-400 hover:border-emerald-500/40 transition-all flex items-center justify-center"
+      type="button"
+      className="p-2 rounded-xl bg-slate-900 border border-slate-800 text-slate-300 hover:text-emerald-400 hover:border-emerald-500/40 transition-all flex items-center justify-center shrink-0"
       title={`Switch to ${theme === 'dark' ? 'Light' : 'Dark'} mode`}
       aria-label="Toggle Theme"
     >

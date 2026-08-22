@@ -5,7 +5,7 @@ import { notFound } from 'next/navigation';
 import { getPostsByCategory, getCategories } from '@/lib/db/posts';
 import Breadcrumbs from '@/components/Breadcrumbs';
 import AdSlot from '@/components/AdSlot';
-import { Timer, Star, ArrowRight, TrendingUp } from 'lucide-react';
+import { Timer, Star, ArrowRight } from 'lucide-react';
 
 interface CategoryPageProps {
   params: Promise<{
@@ -33,29 +33,29 @@ export default async function CategoryPage({ params }: CategoryPageProps) {
   const categoryTitle = catObj ? catObj.name : category.replace('-', ' ').toUpperCase();
 
   return (
-    <div className="space-y-8">
+    <div className="space-y-6 sm:space-y-8">
       <Breadcrumbs items={[{ label: categoryTitle }]} />
 
-      <div className="p-8 rounded-3xl glass-card border border-slate-800 space-y-3">
+      <div className="p-5 sm:p-8 rounded-3xl glass-card space-y-3">
         <span className="text-xs font-mono uppercase tracking-widest text-emerald-400 font-bold">
           Category Archive
         </span>
-        <h1 className="text-3xl sm:text-4xl font-black text-slate-100 tracking-tight">{categoryTitle}</h1>
-        <p className="text-sm text-slate-300 max-w-3xl leading-relaxed">
+        <h1 className="text-2xl sm:text-4xl font-black text-slate-100 tracking-tight">{categoryTitle}</h1>
+        <p className="text-xs sm:text-sm text-slate-300 max-w-3xl leading-relaxed">
           {catObj?.description || `Explore our comprehensive, rate-checked guides and calculators under ${categoryTitle}.`}
         </p>
       </div>
 
       <AdSlot position="header" slotId="category-top" />
 
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6">
         {posts.map((post) => (
           <Link
             key={post.id}
             href={`/${category}/${post.slug}`}
             className="glass-card rounded-2xl overflow-hidden group flex flex-col justify-between"
           >
-            <div className="relative h-48 w-full bg-slate-900 overflow-hidden">
+            <div className="relative h-44 sm:h-48 w-full bg-slate-900 overflow-hidden">
               <Image
                 src={post.cover_image || 'https://images.unsplash.com/photo-1559526324-4b87b5e36e44?auto=format&fit=crop&w=1200&q=80'}
                 alt={post.title}

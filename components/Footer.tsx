@@ -2,15 +2,15 @@
 
 import React from 'react';
 import Link from 'next/link';
-import { TrendingUp, Mail, ShieldCheck, Heart } from 'lucide-react';
+import { TrendingUp, Mail, ShieldCheck } from 'lucide-react';
 
 export default function Footer() {
   return (
-    <footer className="mt-20 border-t border-slate-800/80 bg-slate-950 text-slate-400">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-14">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-10">
+    <footer className="mt-16 sm:mt-20 border-t border-slate-800/80 bg-slate-950 text-slate-400 transition-colors">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 sm:py-14">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 sm:gap-10">
           {/* Brand Col */}
-          <div className="md:col-span-1 space-y-4">
+          <div className="sm:col-span-2 lg:col-span-1 space-y-4">
             <Link href="/" className="flex items-center gap-2.5">
               <div className="w-8 h-8 rounded-xl gradient-emerald flex items-center justify-center text-slate-950 font-extrabold shadow-lg">
                 <TrendingUp className="w-4 h-4 text-slate-950" />
@@ -73,11 +73,11 @@ export default function Footer() {
         </div>
 
         {/* Disclaimer */}
-        <div className="mt-12 pt-8 border-t border-slate-800/80 text-[11px] text-slate-500 space-y-3 leading-relaxed">
+        <div className="mt-10 sm:mt-12 pt-6 sm:pt-8 border-t border-slate-800/80 text-[11px] text-slate-500 space-y-3 leading-relaxed">
           <p>
             <strong>Financial Disclaimer:</strong> Unstory is an independent educational finance publication. The information provided does not constitute personalized investment advice or credit endorsement. Rates, terms, and terms are subject to change by financial institutions without notice. Always verify card rewards and loan APRs directly with issuer disclosures.
           </p>
-          <div className="flex flex-col sm:flex-row justify-between items-center gap-2 pt-2 text-[10px] text-slate-600">
+          <div className="flex flex-col sm:flex-row justify-between items-center gap-2 pt-2 text-[10px] text-slate-600 text-center sm:text-left">
             <span>© {new Date().getFullYear()} Unstory. All rights reserved. Built with Next.js 15 & MDX.</span>
             <span>Unstory Platform - Built for financial clarity</span>
           </div>
