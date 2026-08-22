@@ -2,7 +2,7 @@
 
 import React, { useState } from 'react';
 import Link from 'next/link';
-import { TrendingUp, Search, Menu, X, Sparkles, CreditCard, Landmark, Wallet } from 'lucide-react';
+import { TrendingUp, Search, Menu, X, Sparkles, Cpu, Briefcase, Palette, Compass } from 'lucide-react';
 import ThemeToggle from './ThemeToggle';
 import SearchModal from './SearchModal';
 import { Post } from '@/types/blog';
@@ -33,32 +33,32 @@ export default function Header({ posts = [] }: HeaderProps) {
             {/* Desktop Navigation */}
             <nav className="hidden md:flex items-center gap-1 bg-slate-900/60 p-1.5 rounded-2xl border border-slate-800/80">
               <Link
-                href="/credit-cards"
+                href="/technology"
                 className="px-3.5 py-2 rounded-xl text-xs font-bold text-slate-300 hover:text-emerald-400 hover:bg-slate-800/60 transition-colors flex items-center gap-1.5"
               >
-                <CreditCard className="w-3.5 h-3.5 text-emerald-400" />
-                Credit Cards
+                <Cpu className="w-3.5 h-3.5 text-emerald-400" />
+                Technology
               </Link>
               <Link
-                href="/personal-loans"
+                href="/business"
                 className="px-3.5 py-2 rounded-xl text-xs font-bold text-slate-300 hover:text-emerald-400 hover:bg-slate-800/60 transition-colors flex items-center gap-1.5"
               >
-                <Landmark className="w-3.5 h-3.5 text-teal-400" />
-                Personal Loans
+                <Briefcase className="w-3.5 h-3.5 text-teal-400" />
+                Business
               </Link>
               <Link
-                href="/investing"
+                href="/design"
                 className="px-3.5 py-2 rounded-xl text-xs font-bold text-slate-300 hover:text-emerald-400 hover:bg-slate-800/60 transition-colors flex items-center gap-1.5"
               >
-                <TrendingUp className="w-3.5 h-3.5 text-cyan-400" />
-                Investing
+                <Palette className="w-3.5 h-3.5 text-cyan-400" />
+                Design
               </Link>
               <Link
-                href="/budgeting"
+                href="/lifestyle"
                 className="px-3.5 py-2 rounded-xl text-xs font-bold text-slate-300 hover:text-emerald-400 hover:bg-slate-800/60 transition-colors flex items-center gap-1.5"
               >
-                <Wallet className="w-3.5 h-3.5 text-amber-400" />
-                Budgeting
+                <Compass className="w-3.5 h-3.5 text-amber-400" />
+                Lifestyle
               </Link>
             </nav>
 
@@ -70,7 +70,7 @@ export default function Header({ posts = [] }: HeaderProps) {
                 aria-label="Search articles"
               >
                 <Search className="w-4 h-4 text-emerald-400" />
-                <span className="hidden md:inline">Search guides...</span>
+                <span className="hidden md:inline">Search articles...</span>
                 <kbd className="hidden lg:inline text-[10px] font-mono bg-slate-800 text-slate-400 px-1.5 py-0.5 rounded">
                   ⌘K
                 </kbd>
@@ -102,32 +102,32 @@ export default function Header({ posts = [] }: HeaderProps) {
         {isMobileMenuOpen && (
           <div className="md:hidden border-t border-slate-800/80 bg-slate-950 p-4 space-y-2.5">
             <Link
-              href="/credit-cards"
+              href="/technology"
               onClick={() => setIsMobileMenuOpen(false)}
               className="flex items-center gap-2.5 px-4 py-3 rounded-xl text-sm font-semibold text-slate-200 hover:bg-slate-900 border border-transparent hover:border-slate-800"
             >
-              <CreditCard className="w-4 h-4 text-emerald-400" /> Credit Cards
+              <Cpu className="w-4 h-4 text-emerald-400" /> Technology
             </Link>
             <Link
-              href="/personal-loans"
+              href="/business"
               onClick={() => setIsMobileMenuOpen(false)}
               className="flex items-center gap-2.5 px-4 py-3 rounded-xl text-sm font-semibold text-slate-200 hover:bg-slate-900 border border-transparent hover:border-slate-800"
             >
-              <Landmark className="w-4 h-4 text-teal-400" /> Personal Loans
+              <Briefcase className="w-4 h-4 text-teal-400" /> Business
             </Link>
             <Link
-              href="/investing"
+              href="/design"
               onClick={() => setIsMobileMenuOpen(false)}
               className="flex items-center gap-2.5 px-4 py-3 rounded-xl text-sm font-semibold text-slate-200 hover:bg-slate-900 border border-transparent hover:border-slate-800"
             >
-              <TrendingUp className="w-4 h-4 text-cyan-400" /> Investing
+              <Palette className="w-4 h-4 text-cyan-400" /> Design
             </Link>
             <Link
-              href="/budgeting"
+              href="/lifestyle"
               onClick={() => setIsMobileMenuOpen(false)}
               className="flex items-center gap-2.5 px-4 py-3 rounded-xl text-sm font-semibold text-slate-200 hover:bg-slate-900 border border-transparent hover:border-slate-800"
             >
-              <Wallet className="w-4 h-4 text-amber-400" /> Budgeting
+              <Compass className="w-4 h-4 text-amber-400" /> Lifestyle
             </Link>
 
             <div className="pt-2 border-t border-slate-800 flex flex-col gap-2">

@@ -8,24 +8,24 @@ import { getPublishedPosts } from '@/lib/db/posts';
 export const metadata: Metadata = {
   metadataBase: new URL('https://unstory.pages.dev'),
   title: {
-    default: 'Unstory | Modern Finance Blog & Credit Card Reviews',
-    template: '%s | Unstory Finance',
+    default: 'Unstory | Modern Publishing & Multi-Topic Blog Platform',
+    template: '%s | Unstory Blog',
   },
   description:
-    'Unstory is a modern finance blog delivering unbiased credit card reviews, personal loan calculators, and smart wealth strategies.',
-  keywords: ['finance blog', 'credit card reviews', 'personal loan EMI calculator', 'investing 101', 'Supabase CMS blog'],
-  authors: [{ name: 'Unstory Finance Team' }],
+    'Unstory is a modern multi-topic blog and publishing platform for articles, insights, and stories across technology, business, design, and lifestyle.',
+  keywords: ['multi topic blog', 'publishing platform', 'technology articles', 'business guides', 'design trends', 'Supabase CMS blog'],
+  authors: [{ name: 'Nabeel Ijaz' }],
   openGraph: {
-    title: 'Unstory | Finance & Credit Insights',
-    description: 'Modern finance blog built for performance, SEO, and financial clarity.',
+    title: 'Unstory | Stories & Insights Across Every Field',
+    description: 'Modern publishing platform built for performance, dynamic content, and editorial freedom.',
     url: 'https://unstory.pages.dev',
-    siteName: 'Unstory Finance',
+    siteName: 'Unstory',
     type: 'website',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Unstory Finance',
-    description: 'Modern finance blog & credit card reviews.',
+    title: 'Unstory Blog',
+    description: 'Modern multi-topic blog & publishing platform.',
   },
   robots: {
     index: true,

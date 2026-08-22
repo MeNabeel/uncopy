@@ -20,11 +20,11 @@ export default function Footer() {
               </span>
             </Link>
             <p className="text-xs text-slate-400 leading-relaxed">
-              Unstory is a static-first financial media platform delivering unbiased credit card reviews, loan comparison guides, and wealth building strategies.
+              Unstory is a modern multi-topic blog and publishing platform delivering in-depth articles, technology guides, business insights, and editorial stories.
             </p>
             <div className="flex items-center gap-2 text-[11px] font-mono text-emerald-400 bg-emerald-500/10 px-3 py-1.5 rounded-lg border border-emerald-500/20 w-fit">
               <ShieldCheck className="w-3.5 h-3.5" />
-              <span>Optimized for Cloudflare Pages</span>
+              <span>Optimized for Cloudflare & Vercel</span>
             </div>
           </div>
 
@@ -32,28 +32,28 @@ export default function Footer() {
           <div>
             <h4 className="text-xs font-bold text-slate-200 uppercase tracking-wider mb-4">Categories</h4>
             <ul className="space-y-2.5 text-xs">
-              <li><Link href="/credit-cards" className="hover:text-emerald-400 transition-colors">Credit Card Reviews</Link></li>
-              <li><Link href="/personal-loans" className="hover:text-emerald-400 transition-colors">Personal Loan Guides</Link></li>
-              <li><Link href="/investing" className="hover:text-emerald-400 transition-colors">Index Funds & Stocks</Link></li>
-              <li><Link href="/budgeting" className="hover:text-emerald-400 transition-colors">Budgeting & Savings</Link></li>
+              <li><Link href="/technology" className="hover:text-emerald-400 transition-colors">Technology & AI</Link></li>
+              <li><Link href="/business" className="hover:text-emerald-400 transition-colors">Business & Growth</Link></li>
+              <li><Link href="/design" className="hover:text-emerald-400 transition-colors">Design & Product</Link></li>
+              <li><Link href="/lifestyle" className="hover:text-emerald-400 transition-colors">Lifestyle & Habits</Link></li>
             </ul>
           </div>
 
-          {/* Tools & Resources */}
+          {/* Tools & Platform */}
           <div>
-            <h4 className="text-xs font-bold text-slate-200 uppercase tracking-wider mb-4">Financial Tools</h4>
+            <h4 className="text-xs font-bold text-slate-200 uppercase tracking-wider mb-4">Platform & Admin</h4>
             <ul className="space-y-2.5 text-xs">
-              <li><span className="text-slate-400 hover:text-emerald-400 cursor-pointer">Loan EMI Calculator</span></li>
-              <li><span className="text-slate-400 hover:text-emerald-400 cursor-pointer">Credit Card Finder</span></li>
-              <li><span className="text-slate-400 hover:text-emerald-400 cursor-pointer">Compound Interest Tool</span></li>
-              <li><span className="text-slate-400 hover:text-emerald-400 cursor-pointer">Sitemap & Feed</span></li>
+              <li><Link href="/admin" className="hover:text-emerald-400 transition-colors font-semibold text-emerald-400">Admin CMS Dashboard</Link></li>
+              <li><Link href="/admin/posts/new" className="hover:text-emerald-400 transition-colors">Create New Article</Link></li>
+              <li><Link href="/admin/categories" className="hover:text-emerald-400 transition-colors">Manage Categories</Link></li>
+              <li><Link href="/sitemap.xml" className="hover:text-emerald-400 transition-colors">Sitemap & RSS Feed</Link></li>
             </ul>
           </div>
 
           {/* Newsletter Box */}
           <div>
-            <h4 className="text-xs font-bold text-slate-200 uppercase tracking-wider mb-4">Stay Ahead in Finance</h4>
-            <p className="text-xs text-slate-400 mb-3">Get our weekly breakdown of high-yield credit offers and interest rate moves.</p>
+            <h4 className="text-xs font-bold text-slate-200 uppercase tracking-wider mb-4">Stay Ahead in Tech & Growth</h4>
+            <p className="text-xs text-slate-400 mb-3">Get our weekly breakdown of modern technology trends, design systems, and startup strategies.</p>
             <form onSubmit={(e) => e.preventDefault()} className="space-y-2">
               <div className="relative">
                 <input
@@ -72,14 +72,14 @@ export default function Footer() {
           </div>
         </div>
 
-        {/* Disclaimer */}
+        {/* Bottom Bar */}
         <div className="mt-10 sm:mt-12 pt-6 sm:pt-8 border-t border-slate-800/80 text-[11px] text-slate-500 space-y-3 leading-relaxed">
           <p>
-            <strong>Financial Disclaimer:</strong> Unstory is an independent educational finance publication. The information provided does not constitute personalized investment advice or credit endorsement. Rates, terms, and terms are subject to change by financial institutions without notice. Always verify card rewards and loan APRs directly with issuer disclosures.
+            <strong>Publication Note:</strong> Unstory is an open digital publishing platform. All content and articles are managed dynamically via Supabase CMS with full editorial control over categories, tags, and articles.
           </p>
           <div className="flex flex-col sm:flex-row justify-between items-center gap-2 pt-2 text-[10px] text-slate-600 text-center sm:text-left">
-            <span>© {new Date().getFullYear()} Unstory. All rights reserved. Built with Next.js 15 & MDX.</span>
-            <span>Unstory Platform - Built for financial clarity</span>
+            <span>© {new Date().getFullYear()} Unstory. All rights reserved. Built with Next.js 15, MDX & Supabase.</span>
+            <span>Unstory Platform - Modern Stories Across Every Field</span>
           </div>
         </div>
       </div>

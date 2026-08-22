@@ -8,8 +8,8 @@ import { Lock, Mail, Eye, EyeOff, ShieldCheck, TrendingUp, AlertCircle, Loader2 
 
 export default function AdminLoginPage() {
   const router = useRouter();
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
+  const [email, setEmail] = useState('nabeelijaz559@gmail.com');
+  const [password, setPassword] = useState('11!!nabch');
   const [showPassword, setShowPassword] = useState(false);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);

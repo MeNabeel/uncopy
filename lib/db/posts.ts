@@ -1,178 +1,181 @@
 import { createClient } from '@/lib/supabase/client';
 import { Post, Category, Tag, PostStatus } from '@/types/blog';
 
-// Static fallback post data (Pure JS objects, no Node.js fs dependencies)
+// Static fallback post data representing multi-topic fields
 const STATIC_FALLBACK_POSTS: Post[] = [
   {
     id: 'static-1',
-    title: 'Top 5 Student Credit Cards with Zero Annual Fee in 2026',
-    slug: 'best-student-cards',
-    excerpt: 'Detailed breakdown of the top 5 student credit cards offering cashback, reward points, zero annual fee, and easy approval for young adults building credit.',
-    content: `## Why Student Credit Cards Matter
+    title: 'The Future of Generative AI: Architecture, Agents, and Real-World Impact',
+    slug: 'future-of-generative-ai',
+    excerpt: 'An in-depth look at state-of-the-art AI architectures, agentic workflows, and how modern engineering teams are deploying AI models into production.',
+    content: `## The Next Era of Artificial Intelligence
 
-Building credit early in your financial life is one of the highest leverage moves a young adult can make.
+Artificial Intelligence has transitioned from simple pattern recognition to multi-agent autonomous reasoning engines.
 
-### Key Factors When Choosing a Student Card
+### Key Architectural Shifts
 
-1. **Zero Annual Fee**: Never pay an upfront annual fee on your first card.
-2. **Cashback on Category Spend**: Look for rewards on dining, groceries, and digital subscriptions.
-3. **Low Credit Score Requirement**: Most student cards require minimal credit history.`,
-    cover_image: 'https://images.unsplash.com/photo-1559526324-4b87b5e36e44?auto=format&fit=crop&w=1200&q=80',
-    cover_image_alt: 'Student Credit Cards',
+1. **Agentic Workflows**: Systems that iterate, use tools, and self-correct.
+2. **Local Model Performance**: High efficiency models running directly on-device.
+3. **Retrieval-Augmented Generation (RAG)**: Pairing knowledge bases with generative models for zero hallucination answers.`,
+    cover_image: 'https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=1200&q=80',
+    cover_image_alt: 'Future of Generative AI',
     author_id: 'admin-1',
     author: {
       id: 'admin-1',
-      name: 'Unstory Finance Team',
-      email: 'team@unstory.com',
+      name: 'Nabeel Ijaz',
+      email: 'nabeelijaz559@gmail.com',
       role: 'admin',
       avatar_url: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=150&q=80',
     },
-    category_id: 'cat-credit-cards',
+    category_id: 'cat-technology',
     category: {
-      id: 'cat-credit-cards',
-      name: 'Credit Cards',
-      slug: 'credit-cards',
-      description: 'Credit card reviews & reward strategies',
+      id: 'cat-technology',
+      name: 'Technology',
+      slug: 'technology',
+      description: 'Artificial intelligence, web engineering & software trends',
     },
     status: 'published',
     published: true,
     featured: true,
     reading_time: '6 min read',
-    views: 2450,
+    views: 3450,
     rating: 4.9,
-    seo_title: 'Top 5 Student Credit Cards with Zero Annual Fee in 2026',
-    seo_description: 'Detailed breakdown of the top 5 student credit cards offering cashback, reward points, zero annual fee, and easy approval.',
-    seo_keywords: ['student credit cards', 'zero annual fee', 'credit card rewards'],
-    focus_keyword: 'student credit cards',
+    seo_title: 'The Future of Generative AI: Architecture & Agentic Workflows',
+    seo_description: 'An in-depth look at state-of-the-art AI architectures, agentic workflows, and production deployments.',
+    seo_keywords: ['generative ai', 'ai agents', 'web architecture'],
+    focus_keyword: 'generative ai',
     created_at: '2026-02-01T00:00:00Z',
     updated_at: '2026-02-15T00:00:00Z',
     published_at: '2026-02-01T00:00:00Z',
   },
   {
     id: 'static-2',
-    title: 'Axis Magnus Credit Card Review 2026: Is It Still Worth the Fee?',
-    slug: 'axis-magnus-review',
-    excerpt: 'An exhaustive analysis of the Axis Bank Magnus credit card rewards devaluation, milestone benefits, airport lounge access, and net value math.',
-    content: `## Executive Overview
+    title: 'Building Scalable Digital Products: Strategies for Early Stage Startups',
+    slug: 'building-scalable-startups',
+    excerpt: 'Essential frameworks for product-market fit, sustainable unit economics, and rapid engineering iteration in competitive markets.',
+    content: `## Product-Market Fit & Scale
 
-The Axis Bank Magnus Credit Card has undergone significant reward structure updates.
+Building successful software products requires rapid execution combined with rigorous customer feedback loops.
 
-### Reward Point Transfer Rates
+### core Pillars of Product Scalability
 
-The transfer ratio to international airline partners is now recalibrated.`,
-    cover_image: 'https://images.unsplash.com/photo-1563986768609-322da13575f3?auto=format&fit=crop&w=1200&q=80',
-    cover_image_alt: 'Axis Magnus Credit Card',
+- **Minimal Viable Complexity**: Avoid premature optimization.
+- **Data-Driven Iteration**: Measure retention over raw user acquisition.`,
+    cover_image: 'https://images.unsplash.com/photo-1559526324-4b87b5e36e44?auto=format&fit=crop&w=1200&q=80',
+    cover_image_alt: 'Scalable Startups',
     author_id: 'admin-1',
     author: {
       id: 'admin-1',
-      name: 'Unstory Finance Team',
-      email: 'team@unstory.com',
+      name: 'Nabeel Ijaz',
+      email: 'nabeelijaz559@gmail.com',
       role: 'admin',
       avatar_url: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=150&q=80',
     },
-    category_id: 'cat-credit-cards',
+    category_id: 'cat-business',
     category: {
-      id: 'cat-credit-cards',
-      name: 'Credit Cards',
-      slug: 'credit-cards',
-      description: 'Credit card reviews & reward strategies',
+      id: 'cat-business',
+      name: 'Business',
+      slug: 'business',
+      description: 'Entrepreneurship, product strategy & startup growth',
     },
     status: 'published',
     published: true,
     featured: false,
     reading_time: '8 min read',
-    views: 1890,
-    rating: 4.7,
-    seo_title: 'Axis Magnus Credit Card Review 2026',
-    seo_description: 'Exhaustive analysis of the Axis Bank Magnus credit card rewards devaluation and milestone benefits.',
-    seo_keywords: ['axis magnus review', 'premium credit cards'],
-    focus_keyword: 'axis magnus review',
+    views: 2890,
+    rating: 4.8,
+    seo_title: 'Building Scalable Digital Products for Startups',
+    seo_description: 'Essential frameworks for product-market fit, sustainable unit economics, and rapid iteration.',
+    seo_keywords: ['startup growth', 'product design', 'entrepreneurship'],
+    focus_keyword: 'startup growth',
     created_at: '2026-01-20T00:00:00Z',
     updated_at: '2026-02-10T00:00:00Z',
     published_at: '2026-01-20T00:00:00Z',
   },
   {
     id: 'static-3',
-    title: 'Instant Personal Loans Guide: APR Comparison & EMI Math',
-    slug: 'instant-loans-guide',
-    excerpt: 'Everything you need to know before applying for an instant personal loan. Compare interest rates, processing fees, pre-closure charges, and calculate monthly EMIs.',
-    content: `## Understanding Personal Loan Interest Rates
+    title: 'Modern UI/UX Design Systems: Crafting Clean & Accessible Interfaces',
+    slug: 'modern-ui-ux-design-systems',
+    excerpt: 'How leading design teams construct cohesive design tokens, glassmorphism UI elements, and accessible component libraries.',
+    content: `## The Anatomy of Modern Design Tokens
 
-Personal loans provide fast liquidity without pledging collateral.
+Design systems bridge the gap between design vision and frontend execution.
 
-### Fixed vs Floating APR
+### Design Principles
 
-Calculate your total interest obligation before signing digital loan agreements.`,
-    cover_image: 'https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?auto=format&fit=crop&w=1200&q=80',
-    cover_image_alt: 'Instant Personal Loans',
+- **Semantic Color Tokens**: Theme-aware color structures for dark and light modes.
+- **Fluid Typography**: Dynamic clamp sizing across viewports.`,
+    cover_image: 'https://images.unsplash.com/photo-1563986768609-322da13575f3?auto=format&fit=crop&w=1200&q=80',
+    cover_image_alt: 'UI UX Design Systems',
     author_id: 'admin-1',
     author: {
       id: 'admin-1',
-      name: 'Unstory Finance Team',
-      email: 'team@unstory.com',
+      name: 'Nabeel Ijaz',
+      email: 'nabeelijaz559@gmail.com',
       role: 'admin',
       avatar_url: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=150&q=80',
     },
-    category_id: 'cat-personal-loans',
+    category_id: 'cat-design',
     category: {
-      id: 'cat-personal-loans',
-      name: 'Personal Loans',
-      slug: 'personal-loans',
-      description: 'Loan comparison guides & EMI math',
+      id: 'cat-design',
+      name: 'Design',
+      slug: 'design',
+      description: 'UI/UX design, visual identity & digital aesthetics',
     },
     status: 'published',
     published: true,
     featured: true,
     reading_time: '7 min read',
-    views: 3120,
-    rating: 4.8,
-    seo_title: 'Instant Personal Loans Guide: APR Comparison & EMI Math',
-    seo_description: 'Compare personal loan interest rates, processing fees, and calculate monthly EMIs.',
-    seo_keywords: ['instant personal loans', 'emi calculator', 'personal loan apr'],
-    focus_keyword: 'instant personal loans',
+    views: 4120,
+    rating: 4.9,
+    seo_title: 'Modern UI/UX Design Systems & Micro-Interactions',
+    seo_description: 'Construct cohesive design tokens, glassmorphism UI elements, and accessible component libraries.',
+    seo_keywords: ['ui design', 'design tokens', 'ux design'],
+    focus_keyword: 'ui design',
     created_at: '2026-01-15T00:00:00Z',
     updated_at: '2026-02-05T00:00:00Z',
     published_at: '2026-01-15T00:00:00Z',
   },
   {
     id: 'static-4',
-    title: 'Index Funds 101: Building Long-Term Passive Wealth',
-    slug: 'index-funds-101',
-    excerpt: 'A complete beginner guide to low-cost S&P 500 and total market index fund investing for long-term compound growth.',
-    content: `## Why Index Funds Outperform Active Management
+    title: 'Mastering Deep Work & Remote Productivity Habits in 2026',
+    slug: 'deep-work-productivity-habits',
+    excerpt: 'Actionable routines, focus protocols, and digital minimalism strategies for knowledge workers and remote teams.',
+    content: `## Protecting Focus in a Hyper-Connected World
 
-Over 15 to 20-year horizons, broad-market index funds outperform over 90% of actively managed mutual funds.
+Cognitive clarity is the primary competitive advantage for modern creators and engineers.
 
-### The Power of Low Expense Ratios
+### Focus Protocols
 
-A 0.03% expense ratio preserves hundreds of thousands of dollars in compound growth over a 30-year investing journey.`,
+1. **Time-Blocking**: Dedicated 90-minute deep focus sprints.
+2. **Asynchronous Communication**: Reducing real-time chat distractions.`,
     cover_image: 'https://images.unsplash.com/photo-1590283603385-17ffb3a7f29f?auto=format&fit=crop&w=1200&q=80',
-    cover_image_alt: 'Index Funds Investing',
+    cover_image_alt: 'Deep Work Productivity Habits',
     author_id: 'admin-1',
     author: {
       id: 'admin-1',
-      name: 'Unstory Finance Team',
-      email: 'team@unstory.com',
+      name: 'Nabeel Ijaz',
+      email: 'nabeelijaz559@gmail.com',
       role: 'admin',
       avatar_url: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=150&q=80',
     },
-    category_id: 'cat-investing',
+    category_id: 'cat-lifestyle',
     category: {
-      id: 'cat-investing',
-      name: 'Investing',
-      slug: 'investing',
-      description: 'Index funds & long-term wealth',
+      id: 'cat-lifestyle',
+      name: 'Lifestyle',
+      slug: 'lifestyle',
+      description: 'Productivity routines, personal growth & modern culture',
     },
     status: 'published',
     published: true,
     featured: false,
-    reading_time: '10 min read',
-    views: 4500,
+    reading_time: '9 min read',
+    views: 5200,
     rating: 5.0,
-    seo_title: 'Index Funds 101: Building Long-Term Passive Wealth',
-    seo_description: 'Complete beginner guide to low-cost S&P 500 index fund investing for long-term compound growth.',
-    seo_keywords: ['index funds 101', 'passive investing', 'compound growth'],
-    focus_keyword: 'index funds 101',
+    seo_title: 'Mastering Deep Work & Remote Productivity Habits in 2026',
+    seo_description: 'Actionable routines, focus protocols, and digital minimalism strategies for remote professionals.',
+    seo_keywords: ['deep work', 'productivity habits', 'remote work'],
+    focus_keyword: 'deep work',
     created_at: '2026-01-10T00:00:00Z',
     updated_at: '2026-02-01T00:00:00Z',
     published_at: '2026-01-10T00:00:00Z',
@@ -187,7 +190,7 @@ function mapDbPostToPost(row: any): Post {
     slug: row.slug,
     excerpt: row.excerpt,
     content: row.content,
-    cover_image: row.cover_image || 'https://images.unsplash.com/photo-1559526324-4b87b5e36e44?auto=format&fit=crop&w=1200&q=80',
+    cover_image: row.cover_image || 'https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=1200&q=80',
     cover_image_alt: row.cover_image_alt || row.title,
     author_id: row.author_id,
     author: row.profiles
@@ -200,8 +203,8 @@ function mapDbPostToPost(row: any): Post {
         }
       : {
           id: 'admin-1',
-          name: 'Unstory Finance Team',
-          email: 'editor@unstory.com',
+          name: 'Nabeel Ijaz',
+          email: 'nabeelijaz559@gmail.com',
           role: 'admin',
           avatar_url: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=150&q=80',
         },
@@ -215,8 +218,8 @@ function mapDbPostToPost(row: any): Post {
         }
       : {
           id: 'cat-1',
-          name: row.category_slug ? row.category_slug.replace('-', ' ') : 'Finance',
-          slug: row.category_slug || 'credit-cards',
+          name: row.category_slug ? row.category_slug.replace('-', ' ') : 'General',
+          slug: row.category_slug || 'technology',
         },
     status: row.status as PostStatus,
     published: Boolean(row.published),
@@ -315,26 +318,26 @@ export async function getFeaturedPosts(): Promise<Post[]> {
   return posts.filter((p) => p.featured);
 }
 
-// Fetch categories from DB or fallback
+// Fetch categories from DB or multi-topic fallback
 export async function getCategories(): Promise<Category[]> {
   try {
     const supabase = createClient();
     const { data, error } = await supabase.from('categories').select('*').order('name');
     if (error || !data || data.length === 0) {
       return [
-        { id: 'cat-credit-cards', name: 'Credit Cards', slug: 'credit-cards', description: 'Credit card reviews & reward strategies' },
-        { id: 'cat-personal-loans', name: 'Personal Loans', slug: 'personal-loans', description: 'Loan comparison guides & EMI math' },
-        { id: 'cat-investing', name: 'Investing', slug: 'investing', description: 'Index funds & long-term wealth' },
-        { id: 'cat-budgeting', name: 'Budgeting', slug: 'budgeting', description: 'Personal finance & savings tips' },
+        { id: 'cat-technology', name: 'Technology', slug: 'technology', description: 'Artificial intelligence, web engineering & software trends' },
+        { id: 'cat-business', name: 'Business', slug: 'business', description: 'Entrepreneurship, product strategy & startup growth' },
+        { id: 'cat-design', name: 'Design', slug: 'design', description: 'UI/UX design, visual identity & digital aesthetics' },
+        { id: 'cat-lifestyle', name: 'Lifestyle', slug: 'lifestyle', description: 'Productivity routines, personal growth & modern culture' },
       ];
     }
     return data;
   } catch {
     return [
-      { id: 'cat-credit-cards', name: 'Credit Cards', slug: 'credit-cards', description: 'Credit card reviews & reward strategies' },
-      { id: 'cat-personal-loans', name: 'Personal Loans', slug: 'personal-loans', description: 'Loan comparison guides & EMI math' },
-      { id: 'cat-investing', name: 'Investing', slug: 'investing', description: 'Index funds & long-term wealth' },
-      { id: 'cat-budgeting', name: 'Budgeting', slug: 'budgeting', description: 'Personal finance & savings tips' },
+      { id: 'cat-technology', name: 'Technology', slug: 'technology', description: 'Artificial intelligence, web engineering & software trends' },
+      { id: 'cat-business', name: 'Business', slug: 'business', description: 'Entrepreneurship, product strategy & startup growth' },
+      { id: 'cat-design', name: 'Design', slug: 'design', description: 'UI/UX design, visual identity & digital aesthetics' },
+      { id: 'cat-lifestyle', name: 'Lifestyle', slug: 'lifestyle', description: 'Productivity routines, personal growth & modern culture' },
     ];
   }
 }
